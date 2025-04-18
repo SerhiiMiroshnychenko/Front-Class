@@ -1,0 +1,265 @@
+html {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: monospace;
+    font-size: 12pt;
+    background-color: lightblue;
+    padding: 10px;
+    margin: 0;
+}
+
+h1 {
+    font-size: 20pt;
+    color: dodgerblue;
+    text-align: center;
+    padding: 18px 0 18px 0;
+    margin: 0 0 10px 0;
+}
+
+h1 span {
+    padding: 10px;
+}
+
+p {
+    padding: 0;
+    margin: 0;
+}
+
+.about {
+    text-align: center;
+}
+
+#hr_1 {
+    width: 55%;
+}
+
+.img-circle {
+    border-radius: 50%;
+}
+
+.section {
+    background-color: khaki;
+    color: #000;
+
+    padding: 15px;
+    margin-bottom: 10px;
+    border-radius: 10px;
+}
+
+.section table {
+    font-size: 12pt;
+
+}
+
+
+#header {
+    background-color: rgb(25, 120, 215);
+    background-size: cover;
+}
+
+#header p:hover {
+    color: yellow;
+}
+
+#header img {
+    display: block;
+    width: 80px;
+    height: 80px;
+    margin: auto;
+}
+
+#header p {
+    font-size: 30pt;
+    color: khaki;
+    padding-top: 5px;
+    margin: 0;
+    font-weight: bold;
+    text-align: center;
+}
+
+.quote {
+    font-size: 10pt;
+    font-style: italic;
+    text-align: right;
+    margin-top: 10px;
+}
+
+table {
+    width: 100%;
+    font-size: 12pt;
+}
+
+table,
+th,
+td {
+    font-size:12px;
+    border: 2px solid #cecece;
+    border-collapse: collapse;
+    text-align: center;
+    table-layout: fixed;
+    padding: 1px;
+}
+
+.english {
+    background-color: rgb(235, 223, 112);
+}
+
+
+.beetroot_class {
+    background-color: gold;
+}
+
+.coding {
+    background-color: rgb(251, 236, 105);
+}
+
+.work {
+    background-color: rgb(242, 234, 158);
+}
+
+.sololearn {
+    background-color: rgb(225, 211, 88);
+}
+
+li {
+    margin-bottom: 15px;
+    font-weight: bold;
+}
+
+progress {
+    width: 70%;
+    height: 20px;
+    color: #3fb6b2;
+    background: khaki;
+}
+
+progress::-webkit-progress-bar {
+    background: rgb(211, 202, 124);
+}
+
+progress::-webkit-progress-value {
+    background: rgb(25, 120, 215);
+}
+
+progress::-moz-progress-bar {
+    color: #3fb6b2;
+    background: #efefef;
+}
+
+iframe,
+audio {
+    display: block;
+    margin: 0 auto;
+    border: 3px solid dodgerblue;
+}
+
+hr {
+    border: 0;
+    height: 2px;
+    background: lightblue;
+}
+
+form {
+    text-align: center;
+    margin-top: 0;
+}
+
+.submit {
+    background-color: rgb(25, 120, 215);
+    padding: 12px 45px;
+    border-radius: 5px;
+    cursor: pointer;
+    color: #ffffff;
+    border: none;
+    outline: none;
+    margin: 0;
+    font-weight: bold;
+}
+
+.submit:hover {
+    background-color: dodgerblue;
+}
+
+textarea {
+    height: 100px;
+}
+
+input,
+textarea {
+    margin-bottom: 10px;
+    font-size: 11pt;
+    padding: 15px 10px 10px;
+    border: 1px solid #cecece;
+    background-color: lightblue;
+    color: #787575;
+    border-radius: 5px;
+    width: 70%;
+    outline: none;
+}
+
+.face {
+    transform: scale(0.4);
+    margin: 0 auto;
+    display: block;
+    margin-top: -35px;
+    margin-bottom: -25px;
+}
+
+#contacts img {
+    height: 50px;
+    width: 50px;
+    margin-left: 7px;
+    margin-right: 7px;
+}
+
+#contacts a {
+    text-decoration: none;
+}
+
+#contacts img:hover {
+    opacity: 0.8;
+}
+
+#contacts {
+    text-align: center;
+}
+
+#link1 {
+    font-size: 20px;
+    font-weight: bold;
+    color: royalblue;
+}
+
+#link1:hover {
+    color: blue;
+}
+
+#link2 {
+    font-size: 20px;
+    font-weight: bold;
+    color: dimgray;
+}
+
+#link2:hover {
+    color: black;
+}
+
+#link3 {
+    font-size: 20px;
+    font-weight: bold;
+    color: blueviolet;
+}
+
+#link3:hover {
+    color: darkmagenta;
+}
+
+.copyright {
+    font-size: 8pt;
+    text-align: right;
+    padding-bottom: 10px;
+    color: grey;
+}
