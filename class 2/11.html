@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8">
+  <title>Їжа!</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <style>
+    html {
+      scroll-behavior: smooth;
+    }
+    body {
+      font-family: sans-serif;
+      padding: 20px;
+    }
+    nav a {
+      margin-right: 15px;
+      text-decoration: none;
+      color: darkblue;
+    }
+    section {
+      margin-top: 100px;
+      padding-top: 50px;
+      border-top: 1px solid #ccc;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Найкращі гамбургери у світі!</h1>
+
+  <!-- 🔹 Меню з якорями -->
+  <nav>
+    <a href="#home">Головна</a>
+    <a href="#services">Гамбургери</a>
+    <a href="#contact">Контакти</a>
+  </nav>
+
+  <!-- 🔹 Посилання на іншу сторінку -->
+  <p>
+    <a href="about.html#team">Дізнатися про нашу команду (інша сторінка)</a>
+  </p>
+
+  <!-- 🔹 Посилання з іконкою -->
+  <p>
+    <a href="#contact"><i class="fas fa-envelope"></i> Зв’язатися з нами</a>
+  </p>
+
+  <!-- 🔹 Посилання-картинка -->
+  <p>
+    <a href="gallery.html">
+      <img src="img.png" alt="Приклад зображення" width="100">
+    </a>
+  </p>
+
+  <!-- 🔹 Посилання на якір (той самий документ) -->
+  <p>
+    <a href="#services">Перейти до розділу Гамбургери</a>
+  </p>
+
+  <!-- 🔹 Власне якір -->
+  <section id="home">
+    <h2>Головна</h2>
+    <p>Вітаємо на головній сторінці.</p>
+  </section>
+
+  <section id="services">
+    <h2>Гамбургери</h2>
+    <p>Ми пропонуємо найкращі гамбургери у світі.</p>
+  </section>
+
+  <section id="contact">
+    <h2>Контакти</h2>
+    <p>Зв’яжіться з нами через email або форму нижче.</p>
+  </section>
+
+</body>
+</html>

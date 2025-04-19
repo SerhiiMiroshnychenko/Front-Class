@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8">
+  <title>Галерея</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      padding: 20px;
+    }
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+      gap: 20px;
+    }
+    .gallery img {
+      width: 100%;
+      height: auto;
+      border: 2px solid #ccc;
+      border-radius: 8px;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Наші шедеври!</h1>
+
+  <p><a href="11.html">← Назад на головну</a></p>
+
+  <div class="gallery">
+    <img src="https://via.placeholder.com/300x200" alt="Зображення 1">
+    <img src="img_2.png" alt="Зображення 2">
+    <img src="img_1.png" alt="Зображення 3">
+    <img src="img_3.png" alt="Зображення 4">
+  </div>
+
+</body>
+</html>
