@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="style.xsl"?>
+<page>
+  <title>XML Сторінка</title>
+  <content>
+    <header>Вітаємо на XML-сторінці!</header>
+    <paragraph>Це приклад простої XML-структури, яка відображається у вигляді HTML завдяки XSLT.</paragraph>
+    <note>Цей файл обробляється браузером як HTML за допомогою пов’язаного стилю XSL.</note>
+  </content>
+</page>

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<page>
+  <title>XML Сторінка</title>
+  <content>
+    <header>Вітаємо на XML-сторінці!</header>
+    <paragraph>Це приклад простої XML-структури, яка може бути використана для відображення даних.</paragraph>
+    <note>Цей файл не інтерпретується браузером як HTML, але його можна парсити на клієнті або сервері.</note>
+  </content>
+</page>
