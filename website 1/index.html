@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Облік витрат</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="clock-container">
+        <div id="clock">00:00:00</div>
+    </div>
+    
+    <div class="container">
+        <h1>Облік витрат</h1>
+        
+        <div class="expenses-display">
+            <div class="expense-category">
+                <h3>Продукти</h3>
+                <p><span id="products-total">0</span> грн</p>
+            </div>
+            <div class="expense-category">
+                <h3>Речі</h3>
+                <p><span id="clothes-total">0</span> грн</p>
+            </div>
+            <div class="expense-category">
+                <h3>Інше</h3>
+                <p><span id="other-total">0</span> грн</p>
+            </div>
+        </div>
+        
+        <div class="expense-form">
+            <form id="expense-form">
+                <div class="form-group">
+                    <label for="category">Категорія:</label>
+                    <select id="category" name="category" required>
+                        <option value="" disabled selected>Виберіть категорію</option>
+                        <option value="products">Продукти</option>
+                        <option value="clothes">Речі</option>
+                        <option value="other">Інше</option>
+                    </select>
+                </div>
+                
+                <div class="form-group">
+                    <label for="amount">Сума (грн):</label>
+                    <input type="number" id="amount" name="amount" min="0" step="0.01" required>
+                </div>
+                
+                <button type="submit" id="submit-btn">Записати</button>
+            </form>
+        </div>
+    </div>
+    
+    <script src="script.js"></script>
+</body>
+</html>
