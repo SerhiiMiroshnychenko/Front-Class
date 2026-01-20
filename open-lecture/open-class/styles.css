@@ -9,23 +9,23 @@
     --text-primary: #ffffff;
     --text-secondary: #a0a0b8;
     --text-muted: #6b6b80;
-    
+
     /* Акцентні кольори для технологій */
     --html-color: #e44d26;
     --css-color: #264de4;
     --js-color: #f7df1e;
     --python-color: #3776ab;
     --db-color: #47a248;
-    
+
     /* Градієнти */
     --gradient-primary: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
     --gradient-accent: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
     --gradient-dark: linear-gradient(180deg, #0f0f1a 0%, #1a1a2e 100%);
-    
+
     /* Тіні */
     --shadow-soft: 0 4px 20px rgba(0, 0, 0, 0.3);
     --shadow-glow: 0 0 30px rgba(102, 126, 234, 0.3);
-    
+
     /* Анімації */
     --transition-fast: 0.2s ease;
     --transition-medium: 0.4s ease;
@@ -63,10 +63,9 @@ body::before {
     left: 0;
     right: 0;
     bottom: 0;
-    background-image: 
-        radial-gradient(circle at 20% 80%, rgba(102, 126, 234, 0.1) 0%, transparent 50%),
-        radial-gradient(circle at 80% 20%, rgba(118, 75, 162, 0.1) 0%, transparent 50%),
-        url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.02'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+    background-image: radial-gradient(circle at 20% 80%, rgba(102, 126, 234, 0.1) 0%, transparent 50%),
+    radial-gradient(circle at 80% 20%, rgba(118, 75, 162, 0.1) 0%, transparent 50%),
+    url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.02'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
     pointer-events: none;
     z-index: 0;
 }
@@ -226,8 +225,12 @@ body::before {
 }
 
 @keyframes float {
-    0%, 100% { transform: translateY(0); }
-    50% { transform: translateY(-10px); }
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
 }
 
 .title-slide h1 {
@@ -424,7 +427,7 @@ kbd {
 .divider-line {
     width: 2px;
     flex: 1;
-    background: linear-gradient(180deg, transparent, rgba(255,255,255,0.2), transparent);
+    background: linear-gradient(180deg, transparent, rgba(255, 255, 255, 0.2), transparent);
 }
 
 .divider-text {
@@ -556,9 +559,17 @@ kbd {
     margin-right: 8px;
 }
 
-.code-dot.red { background: #ff5f56; }
-.code-dot.yellow { background: #ffbd2e; }
-.code-dot.green { background: #27ca40; }
+.code-dot.red {
+    background: #ff5f56;
+}
+
+.code-dot.yellow {
+    background: #ffbd2e;
+}
+
+.code-dot.green {
+    background: #27ca40;
+}
 
 .code-title {
     margin-left: 10px;
@@ -1204,44 +1215,44 @@ kbd {
     .slide {
         padding: 80px 30px 60px;
     }
-    
+
     .content-grid {
         grid-template-columns: 1fr;
     }
-    
+
     .comparison-container {
         flex-direction: column;
     }
-    
+
     .comparison-divider {
         flex-direction: row;
         padding: 15px 0;
     }
-    
+
     .code-explanation {
         grid-template-columns: 1fr;
     }
-    
+
     .code-explanation.reverse .code-block {
         order: 0;
     }
-    
+
     .database-section {
         grid-template-columns: 1fr;
     }
-    
+
     .project-structure {
         grid-template-columns: 1fr;
     }
-    
+
     .summary-grid {
         grid-template-columns: 1fr;
     }
-    
+
     .workflow-diagram {
         flex-direction: column;
     }
-    
+
     .workflow-arrow {
         transform: rotate(90deg);
     }
@@ -1251,16 +1262,16 @@ kbd {
     .title-slide h1 {
         font-size: 2.5rem;
     }
-    
+
     .slide-content h2 {
         font-size: 1.8rem;
     }
-    
+
     .title-meta {
         flex-wrap: wrap;
         justify-content: center;
     }
-    
+
     .keyboard-hints {
         display: none;
     }

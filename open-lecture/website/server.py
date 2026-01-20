@@ -10,11 +10,13 @@ CORS(app)  # Увімкнення CORS для всіх маршрутів
 
 EXCEL_FILE = 'expenses.xlsx'
 
+
 def initialize_excel_file():
     if not os.path.exists(EXCEL_FILE):
         df = pd.DataFrame(columns=['Дата та час', 'Категорія', 'Сума'])
         df.to_excel(EXCEL_FILE, index=False)
         print(f"Створено новий Excel-файл: {EXCEL_FILE}")
+
 
 def get_expense_totals():
     if not os.path.exists(EXCEL_FILE):
@@ -41,17 +43,21 @@ def get_expense_totals():
         print(f"Помилка під час підрахунку сум витрат: {e}")
         return {"products": 0, "clothes": 0, "other": 0}
 
+
 @app.route('/')
 def index():
     return send_from_directory('.', 'index.html')
+
 
 @app.route('/<path:path>')
 def static_files(path):
     return send_from_directory('.', path)
 
+
 @app.route('/get_totals', methods=['GET'])
 def get_totals():
     return jsonify(get_expense_totals())
+
 
 @app.route('/add_expense', methods=['POST'])
 def add_expense():
@@ -106,6 +112,7 @@ def add_expense():
     except Exception as e:
         print(f"Помилка під час додавання витрати: {e}")
         return jsonify({"error": str(e)}), 500
+
 
 if __name__ == '__main__':
     initialize_excel_file()
