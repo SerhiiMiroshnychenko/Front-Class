@@ -342,9 +342,24 @@ kbd {
     border-color: rgba(102, 126, 234, 0.5);
 }
 
+.spin-icon {
+    display: inline-block;
+    transform-origin: 50% 50%;
+    animation: spin 6s linear infinite;
+}
+
 .card-icon {
     font-size: 3rem;
     margin-bottom: 20px;
+}
+
+@keyframes spin {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
 }
 
 .content-card h3 {
@@ -1187,6 +1202,9 @@ kbd {
     background: var(--gradient-primary);
     border-radius: 16px;
     display: inline-block;
+    cursor: pointer;
+    border: 2px solid rgba(255, 255, 255, 0.12);
+    transition: background 0.3s ease, background-color 0.3s ease, border-color 0.3s ease;
 }
 
 .thank-you h2 {
@@ -1239,10 +1257,26 @@ kbd {
     animation-delay: 0.6s;
 }
 
+.bounce {
+    animation: bounce 2s infinite;
+}
+
 @keyframes slideIn {
     to {
         opacity: 1;
         transform: translateY(0);
+    }
+}
+
+@keyframes bounce {
+    0%, 20%, 50%, 80%, 100% {
+        transform: translateY(0);
+    }
+    40% {
+        transform: translateY(-20px);
+    }
+    60% {
+        transform: translateY(-10px);
     }
 }
 

@@ -85,6 +85,45 @@ function nextSlide() {
 }
 
 /**
+ * Налаштування кліку по блоку "Дякую за увагу" з випадковим кольором
+ */
+function setupThankYouColor() {
+    const thankYou = document.querySelector('.thank-you');
+
+    if (!thankYou) {
+        return;
+    }
+
+    function getRandomColor() {
+        const r = Math.floor(Math.random() * 256);
+        const g = Math.floor(Math.random() * 256);
+        const b = Math.floor(Math.random() * 256);
+        return { r, g, b };
+    }
+
+    function darkenColor({ r, g, b }, percent = 20) {
+        const factor = 1 - percent / 100;
+        return {
+            r: Math.floor(r * factor),
+            g: Math.floor(g * factor),
+            b: Math.floor(b * factor)
+        };
+    }
+
+    function rgbToString({ r, g, b }) {
+        return `rgb(${r}, ${g}, ${b})`;
+    }
+
+    thankYou.addEventListener('click', () => {
+        const color = getRandomColor();
+        const darker = darkenColor(color);
+
+        thankYou.style.background = rgbToString(color);
+        thankYou.style.borderColor = rgbToString(darker);
+    });
+}
+
+/**
  * Перехід до попереднього слайда
  */
 function prevSlide() {
@@ -330,10 +369,9 @@ function init() {
     setupNavigationButtons();
     setupTouchNavigation();
     setupWheelNavigation();
-
-    // Налаштовуємо демо елементи
     setupDemoCounter();
     setupCSSDemo();
+    setupThankYouColor();
 
     // Виводимо інформацію в консоль
     console.log('🎨 Презентація "Основи Web-розробки" завантажена');
