@@ -433,12 +433,12 @@ def add_expense():
             <div class="code-explanation">
                 <div class="explanation-text animate-in">
                     <h3>Офіціант приймає замовлення тільки за правилами</h3>
-                    <p><strong>API</strong> <small><i>(Application Programming Interface)</i></small> визначає:</p>
+                    <p><strong>API</strong> <i>(Application Programming Interface)</i> визначає:</p>
                     <ul class="feature-list">
                         <li><span class="highlight">куди</span> звернутися (endpoint: <span class="highlight">/get_totals</span>)</li>
-                        <li><span class="highlight">як</span> звернутися (HTTP <small><i>(HyperText Transfer Protocol)</i></small> метод: <span class="highlight">GET</span>/<span class="highlight">POST</span>)</li>
-                        <li><span class="highlight">що</span> передати (дані запиту у <span class="highlight">JSON</span> <small><i>(JavaScript Object Notation)</i></small>)</li>
-                        <li><span class="highlight">що</span> отримаємо у відповідь (зазвичай <span class="highlight">JSON</span> <small><i>(JavaScript Object Notation)</i></small>)</li>
+                        <li><span class="highlight">як</span> звернутися (<b>HTTP</b> <i>(HyperText Transfer Protocol)</i> метод: <span class="highlight">GET</span>/<span class="highlight">POST</span>)</li>
+                        <li><span class="highlight">що</span> передати (дані запиту у <span class="highlight">JSON</span> <i>(JavaScript Object Notation)</i>)</li>
+                        <li><span class="highlight">що</span> отримаємо у відповідь (зазвичай також <span class="highlight">JSON</span>)</li>
                     </ul>
                     <div class="api-demo">
                         <div class="api-endpoint">
@@ -499,7 +499,7 @@ Response 400 (JSON)
                         <li><strong>Network</strong> у DevTools показує реальні запити <span class="highlight">GET</span> та <span class="highlight">POST</span></li>
                         <li><strong>Request</strong> — що відправили (JSON)</li>
                         <li><strong>Response</strong> — що повернув сервер (JSON)</li>
-                        <li><strong>DOM</strong> <small><i>(Document Object Model)</i></small> оновлюється без перезавантаження сторінки</li>
+                        <li><strong>DOM</strong> <i>(Document Object Model)</i> оновлюється без перезавантаження сторінки</li>
                     </ul>
                     <div class="api-demo">
                         <div class="api-endpoint">
@@ -740,8 +740,7 @@ const updatedTotals = await addResponse.json();</code></pre>
                     <ul>
                         <li><strong>Сервер</strong> — обробка запитів</li>
                         <li><strong>База даних</strong> — зберігання</li>
-                        <li><strong>API</strong> — спілкування з frontend <small><i>(Application Programming
-                            Interface)</i></small></li>
+                        <li><strong>API</strong> — спілкування з frontend</li>
                     </ul>
                 </div>
             </div>
@@ -754,6 +753,7 @@ const updatedTotals = await addResponse.json();</code></pre>
                 <h2>Дякую за увагу! 🙌</h2>
                 <p>Питання?</p>
             </div>
+            <button id="randomCircleBtn" class="random-circle-btn" type="button" aria-label="Випадкова кнопка"></button>
         </div>
     </section>
 </div>

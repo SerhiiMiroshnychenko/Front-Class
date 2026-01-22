@@ -73,6 +73,11 @@ function goToSlide(slideNumber) {
 
     // Оновлюємо UI
     updateUI();
+
+    // Оновлюємо видимість інтерактивних елементів, що залежать від слайда
+    if (typeof window.__updateRandomCircleVisibility === 'function') {
+        window.__updateRandomCircleVisibility();
+    }
 }
 
 /**
@@ -88,11 +93,23 @@ function nextSlide() {
  * Налаштування кліку по блоку "Дякую за увагу" з випадковим кольором
  */
 function setupThankYouColor() {
-    const thankYou = document.querySelector('.thank-you');
+    // Повертаємо блок у статичний стан: без інтерактивної зміни кольору
+}
 
-    if (!thankYou) {
+/**
+ * Випадкова коло-кнопка на останньому слайді
+ */
+function setupRandomCircleButton() {
+    const lastSlide = document.querySelector(`.slide[data-slide="${totalSlides}"]`);
+    const circleBtn = document.getElementById('randomCircleBtn');
+
+    if (!lastSlide || !circleBtn) {
         return;
     }
+
+    const host = lastSlide.querySelector('.summary-slide') || lastSlide;
+    const circleSize = 64;
+    const padding = 20;
 
     function getRandomColor() {
         const r = Math.floor(Math.random() * 256);
@@ -114,13 +131,63 @@ function setupThankYouColor() {
         return `rgb(${r}, ${g}, ${b})`;
     }
 
-    thankYou.addEventListener('click', () => {
+    function setRandomColors() {
         const color = getRandomColor();
         const darker = darkenColor(color);
+        circleBtn.style.backgroundColor = rgbToString(color);
+        circleBtn.style.borderColor = rgbToString(darker);
+    }
 
-        thankYou.style.background = rgbToString(color);
-        thankYou.style.borderColor = rgbToString(darker);
+    function placeRandomly() {
+        const width = host.clientWidth;
+        const height = host.clientHeight;
+
+        const maxLeft = Math.max(0, width - circleSize - padding * 2);
+        const maxTop = Math.max(0, height - circleSize - padding * 2);
+
+        const left = padding + Math.floor(Math.random() * (maxLeft + 1));
+        const top = padding + Math.floor(Math.random() * (maxTop + 1));
+
+        circleBtn.style.left = `${left}px`;
+        circleBtn.style.top = `${top}px`;
+    }
+
+    function showCircle() {
+        circleBtn.style.display = 'block';
+        placeRandomly();
+        setRandomColors();
+    }
+
+    function hideCircle() {
+        circleBtn.style.display = 'none';
+    }
+
+    function updateVisibility() {
+        if (currentSlideIndex === totalSlides) {
+            showCircle();
+        } else {
+            hideCircle();
+        }
+    }
+
+    circleBtn.addEventListener('mouseenter', () => {
+        setRandomColors();
     });
+
+    circleBtn.addEventListener('click', () => {
+        hideCircle();
+        setTimeout(() => {
+            showCircle();
+        }, 120);
+    });
+
+    // Показ при першому заході на останній слайд
+    setTimeout(() => {
+        updateVisibility();
+    }, 0);
+
+    // Експонуємо метод для виклику при зміні слайда
+    window.__updateRandomCircleVisibility = updateVisibility;
 }
 
 /**
@@ -372,6 +439,7 @@ function init() {
     setupDemoCounter();
     setupCSSDemo();
     setupThankYouColor();
+    setupRandomCircleButton();
 
     // Виводимо інформацію в консоль
     console.log('🎨 Презентація "Основи Web-розробки" завантажена');
