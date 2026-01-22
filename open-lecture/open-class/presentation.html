@@ -16,7 +16,7 @@
     </div>
     <div class="nav-controls">
         <button class="nav-btn" id="prevBtn" title="Попередній слайд">←</button>
-        <span class="slide-counter"><span id="currentSlide">1</span> / <span id="totalSlides">12</span></span>
+        <span class="slide-counter"><span id="currentSlide">1</span> / <span id="totalSlides">15</span></span>
         <button class="nav-btn" id="nextBtn" title="Наступний слайд">→</button>
     </div>
 </nav>
@@ -26,6 +26,20 @@
 
     <!-- Слайд 1: Титульний -->
     <section class="slide active" data-slide="1">
+        <div class="slide-ornament slide-ornament-top" aria-hidden="true">
+            <svg class="slide-ornament-svg" viewBox="0 0 1500 40" preserveAspectRatio="none">
+                <defs>
+                    <linearGradient id="titleGradientTop" x1="0%" y1="0%" x2="100%" y2="100%">
+                        <stop offset="0%" stop-color="#667eea" />
+                        <stop offset="100%" stop-color="#764ba2" />
+                    </linearGradient>
+                </defs>
+                <polygon points="0,20 10,10 20,20 10,30" fill="url(#titleGradientTop)">
+                    <animateTransform attributeName="transform" type="translate" from="1450 0" to="50 0" dur="55s" repeatCount="indefinite" />
+                </polygon>
+            </svg>
+        </div>
+
         <div class="slide-content title-slide">
             <div class="title-decoration">
                 <span class="code-symbol">&lt;</span>
@@ -41,6 +55,20 @@
                 <span class="tag">Python</span>
             </div>
             <p class="start-hint">Натисніть <kbd>→</kbd> або <kbd>Space</kbd> для початку</p>
+        </div>
+
+        <div class="slide-ornament slide-ornament-bottom" aria-hidden="true">
+            <svg class="slide-ornament-svg" viewBox="0 0 1500 40" preserveAspectRatio="none">
+                <defs>
+                    <linearGradient id="titleGradientBottom" x1="0%" y1="0%" x2="100%" y2="100%">
+                        <stop offset="0%" stop-color="#667eea" />
+                        <stop offset="100%" stop-color="#764ba2" />
+                    </linearGradient>
+                </defs>
+                <polygon points="0,20 10,10 20,20 10,30" fill="url(#titleGradientBottom)">
+                    <animateTransform attributeName="transform" type="translate" from="50 0" to="1450 0" dur="55s" repeatCount="indefinite" />
+                </polygon>
+            </svg>
         </div>
     </section>
 
@@ -308,7 +336,7 @@ form.addEventListener('submit', async function(event) {
                 <div class="workflow-arrow animate-in delay-2">→</div>
                 <div class="workflow-step animate-in delay-2">
                     <div class="step-number">3</div>
-                    <div class="step-icon js-icon">JS</div>
+                    <div class="step-icon js-icon">JS (JavaScript)</div>
                     <div class="step-description">
                         <h4>Оживляємо сторінку</h4>
                         <p>Реакція на дії, анімації</p>
@@ -398,8 +426,143 @@ def add_expense():
         </div>
     </section>
 
-    <!-- Слайд 9: База даних -->
+    <!-- Слайд 9: API - Контракт -->
     <section class="slide" data-slide="9">
+        <div class="slide-content">
+            <h2>🤝 API — контракт між Frontend і Backend</h2>
+            <div class="code-explanation">
+                <div class="explanation-text animate-in">
+                    <h3>Офіціант приймає замовлення тільки за правилами</h3>
+                    <p><strong>API</strong> <small><i>(Application Programming Interface)</i></small> визначає:</p>
+                    <ul class="feature-list">
+                        <li><span class="highlight">куди</span> звернутися (endpoint: <span class="highlight">/get_totals</span>)</li>
+                        <li><span class="highlight">як</span> звернутися (HTTP <small><i>(HyperText Transfer Protocol)</i></small> метод: <span class="highlight">GET</span>/<span class="highlight">POST</span>)</li>
+                        <li><span class="highlight">що</span> передати (дані запиту у <span class="highlight">JSON</span> <small><i>(JavaScript Object Notation)</i></small>)</li>
+                        <li><span class="highlight">що</span> отримаємо у відповідь (зазвичай <span class="highlight">JSON</span> <small><i>(JavaScript Object Notation)</i></small>)</li>
+                    </ul>
+                    <div class="api-demo">
+                        <div class="api-endpoint">
+                            <span class="method get">GET</span>
+                            <code>/get_totals</code>
+                            <span class="desc">→ повертає суми</span>
+                        </div>
+                        <div class="api-endpoint">
+                            <span class="method post">POST</span>
+                            <code>/add_expense</code>
+                            <span class="desc">→ приймає витрату</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="code-block animate-in delay-1">
+                    <div class="code-header">
+                        <span class="code-dot red"></span>
+                        <span class="code-dot yellow"></span>
+                        <span class="code-dot green"></span>
+                        <span class="code-title">API контракт (приклади)</span>
+                    </div>
+                    <pre><code>GET /get_totals
+
+Response 200 (JSON)
+{
+  "products": 150.0,
+  "clothes": 200.0,
+  "other": 50.0
+}
+
+POST /add_expense
+
+Request (JSON)
+{
+  "category": "products",
+  "amount": 120.50
+}
+
+Response 200 (JSON)
+{ ...оновлені суми... }
+
+Response 400 (JSON)
+{ "error": "Некоректні дані" }</code></pre>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Слайд 10: API в дії -->
+    <section class="slide" data-slide="10">
+        <div class="slide-content">
+            <h2>🔌 API в дії: кнопка → запит → відповідь</h2>
+            <div class="code-explanation">
+                <div class="explanation-text animate-in">
+                    <h3>Як браузер «розмовляє» із сервером</h3>
+                    <p>Коли ви натискаєте <strong>Записати</strong>, JavaScript робить запит через <span class="highlight">fetch</span>.</p>
+                    <ul class="feature-list">
+                        <li><strong>Network</strong> у DevTools показує реальні запити <span class="highlight">GET</span> та <span class="highlight">POST</span></li>
+                        <li><strong>Request</strong> — що відправили (JSON)</li>
+                        <li><strong>Response</strong> — що повернув сервер (JSON)</li>
+                        <li><strong>DOM</strong> <small><i>(Document Object Model)</i></small> оновлюється без перезавантаження сторінки</li>
+                    </ul>
+                    <div class="api-demo">
+                        <div class="api-endpoint">
+                            <span class="method get">GET</span>
+                            <code>/get_totals</code>
+                            <span class="desc">→ при завантаженні сторінки</span>
+                        </div>
+                        <div class="api-endpoint">
+                            <span class="method post">POST</span>
+                            <code>/add_expense</code>
+                            <span class="desc">→ при відправці форми</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="code-block animate-in delay-1">
+                    <div class="code-header">
+                        <span class="code-dot red"></span>
+                        <span class="code-dot yellow"></span>
+                        <span class="code-dot green"></span>
+                        <span class="code-title">script.js</span>
+                    </div>
+                    <pre><code>// 1) Отримати суми (GET)
+const totalsResponse = await fetch('http://localhost:5000/get_totals');
+const totals = await totalsResponse.json();
+
+// 2) Додати витрату (POST)
+const addResponse = await fetch('http://localhost:5000/add_expense', {
+  method: 'POST',
+  headers: { 'Content-Type': 'application/json' },
+  body: JSON.stringify({ category: 'products', amount: 120.50 })
+});
+const updatedTotals = await addResponse.json();</code></pre>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Слайд 11: Навіщо розділення та API -->
+    <section class="slide" data-slide="11">
+        <div class="slide-content">
+            <h2>🧩 Чому ми розділяємо ролі та працюємо через API?</h2>
+            <div class="content-grid">
+                <div class="content-card animate-in">
+                    <div class="card-icon">🔒</div>
+                    <h3>Безпека</h3>
+                    <p>Браузер не повинен напряму мати доступ до бази даних. Сервер перевіряє дані, права доступу та вирішує, що дозволено.</p>
+                </div>
+                <div class="content-card animate-in delay-1">
+                    <div class="card-icon">🌍</div>
+                    <h3>Різні середовища</h3>
+                    <p>DOM живе в браузері, а дані зберігаються на сервері. API — це «мова», якою ці два світи узгоджено спілкуються.</p>
+                </div>
+                <div class="content-card animate-in delay-2">
+                    <div class="card-icon">🛠️</div>
+                    <h3>Підтримка та розвиток</h3>
+                    <p>Можна змінювати інтерфейс або базу даних незалежно, якщо контракт API залишається стабільним. Це робить проєкт простішим у розвитку.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Слайд 12: База даних -->
+    <section class="slide" data-slide="12">
         <div class="slide-content">
             <h2><span class="badge db">Database</span> Зберігання даних</h2>
             <div class="database-section">
@@ -458,8 +621,8 @@ def add_expense():
         </div>
     </section>
 
-    <!-- Слайд 10: Повна архітектура -->
-    <section class="slide" data-slide="10">
+    <!-- Слайд 13: Повна архітектура -->
+    <section class="slide" data-slide="13">
         <div class="slide-content">
             <h2>🔄 Як все працює разом</h2>
             <div class="architecture-diagram">
@@ -473,7 +636,7 @@ def add_expense():
                 </div>
 
                 <div class="arch-arrow animate-in delay-1">
-                    <div class="arrow-label request">Запит: "Додай витрату 100 грн"</div>
+                    <div class="arrow-label request">API запит: "Додай витрату 100 грн"</div>
                     <div class="arrow-line">⬇️</div>
                 </div>
 
@@ -504,8 +667,8 @@ def add_expense():
         </div>
     </section>
 
-    <!-- Слайд 11: Структура нашого проєкту -->
-    <section class="slide" data-slide="11">
+    <!-- Слайд 14: Структура нашого проєкту -->
+    <section class="slide" data-slide="14">
         <div class="slide-content">
             <h2>📁 Структура нашого проєкту</h2>
             <div class="project-structure">
@@ -557,8 +720,8 @@ def add_expense():
         </div>
     </section>
 
-    <!-- Слайд 12: Підсумок -->
-    <section class="slide" data-slide="12">
+    <!-- Слайд 15: Підсумок -->
+    <section class="slide" data-slide="15">
         <div class="slide-content summary-slide">
             <h2>📝 Підсумок</h2>
             <div class="summary-grid">
@@ -577,8 +740,7 @@ def add_expense():
                     <ul>
                         <li><strong>Сервер</strong> — обробка запитів</li>
                         <li><strong>База даних</strong> — зберігання</li>
-                        <li><strong>API</strong> — спілкування з frontend <small><i>(Application Programming
-                            Interface)</i></small></li>
+                        <li><strong>API</strong> — спілкування з frontend</li>
                     </ul>
                 </div>
             </div>
