@@ -417,6 +417,74 @@ function setupCSSDemo() {
     }
 }
 
+/**
+ * DOM-демо (Слайд "DOM")
+ * Варіант A: клік по блоку змінює його вміст (циклічно, 3 стани)
+ */
+function setupDomDemo() {
+    const card = document.getElementById('domDemoCard');
+    const content = document.getElementById('domDemoContent');
+
+    if (!card || !content) {
+        return;
+    }
+
+    const states = [
+        {
+            html: `
+                <p>Я — звичайний блок у DOM.</p>
+                <p class="dom-demo-hint">Клікни, і JavaScript змінить мій вміст.</p>
+            `
+        },
+        {
+            html: `
+                <p><strong>DOM змінено!</strong> Тепер я — список:</p>
+                <ul class="dom-demo-list">
+                    <li>Елемент 1</li>
+                    <li>Елемент 2</li>
+                    <li>Елемент 3</li>
+                </ul>
+                <p class="dom-demo-hint">Ще клік — і буде інший вигляд.</p>
+            `
+        },
+        {
+            html: `
+                <p><strong>DOM змінено знову!</strong> Тепер я — “код-блок”:</p>
+                <pre class="dom-demo-code"><code>document.querySelector('#domDemoContent')
+  .textContent = 'Привіт, DOM!';</code></pre>
+                <p class="dom-demo-hint">Клік — повернення до початкового стану.</p>
+            `
+        }
+    ];
+
+    let stateIndex = 0;
+
+    function applyState(index) {
+        stateIndex = index;
+        content.innerHTML = states[stateIndex].html;
+        card.classList.toggle('is-changed', stateIndex !== 0);
+        card.classList.remove('pulse');
+        void card.offsetWidth;
+        card.classList.add('pulse');
+    }
+
+    function nextState() {
+        const nextIndex = (stateIndex + 1) % states.length;
+        applyState(nextIndex);
+    }
+
+    card.addEventListener('click', () => {
+        nextState();
+    });
+
+    card.addEventListener('keydown', (event) => {
+        if (event.key === 'Enter' || event.key === ' ') {
+            event.preventDefault();
+            nextState();
+        }
+    });
+}
+
 // ========================================
 // ІНІЦІАЛІЗАЦІЯ
 // ========================================
@@ -438,6 +506,7 @@ function init() {
     setupWheelNavigation();
     setupDemoCounter();
     setupCSSDemo();
+    setupDomDemo();
     setupThankYouColor();
     setupRandomCircleButton();
 

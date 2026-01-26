@@ -649,6 +649,112 @@ kbd {
     text-align: center;
 }
 
+/* ========================================
+   DOM ДЕМО (СЛАЙД "DOM")
+   ======================================== */
+.dom-demo {
+    margin-top: 25px;
+}
+
+.dom-demo-card {
+    background: var(--bg-secondary);
+    border-radius: 16px;
+    padding: 22px;
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    cursor: pointer;
+    transition: all var(--transition-medium);
+    outline: none;
+    position: relative;
+}
+
+.dom-demo-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-glow);
+    border-color: rgba(247, 223, 30, 0.6);
+}
+
+.dom-demo-card:focus-visible {
+    box-shadow: 0 0 0 3px rgba(247, 223, 30, 0.35), var(--shadow-glow);
+    border-color: rgba(247, 223, 30, 0.8);
+}
+
+.dom-demo-card.is-changed {
+    background: linear-gradient(135deg, rgba(247, 223, 30, 0.12) 0%, rgba(102, 126, 234, 0.10) 100%);
+    border-color: rgba(102, 126, 234, 0.55);
+}
+
+.dom-demo-title {
+    font-weight: 700;
+    margin-bottom: 12px;
+    letter-spacing: 0.2px;
+}
+
+.dom-demo-content p {
+    color: var(--text-secondary);
+    line-height: 1.7;
+    margin-bottom: 10px;
+}
+
+.dom-demo-hint {
+    color: var(--text-muted) !important;
+    font-size: 0.9rem;
+    margin-bottom: 0 !important;
+}
+
+.dom-demo-list {
+    list-style: none;
+    margin: 12px 0 12px;
+    padding: 0;
+}
+
+.dom-demo-list li {
+    padding: 8px 0;
+    padding-left: 25px;
+    position: relative;
+    color: var(--text-secondary);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.dom-demo-list li::before {
+    content: '→';
+    position: absolute;
+    left: 0;
+    color: var(--text-muted);
+}
+
+.dom-demo-code {
+    margin: 12px 0 12px;
+    padding: 14px 16px;
+    background: rgba(15, 15, 26, 0.55);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: 10px;
+    overflow-x: auto;
+}
+
+.dom-demo-code code {
+    font-family: 'Fira Code', monospace;
+    color: var(--text-secondary);
+    font-size: 0.85rem;
+    line-height: 1.6;
+}
+
+/* Легка "пульсація" при зміні стану */
+.dom-demo-card.pulse {
+    animation: domPulse 0.35s ease;
+}
+
+@keyframes domPulse {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.01);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
 .demo-btn {
     padding: 12px 30px;
     background: var(--gradient-primary);

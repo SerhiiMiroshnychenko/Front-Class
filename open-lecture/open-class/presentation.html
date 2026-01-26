@@ -16,7 +16,7 @@
     </div>
     <div class="nav-controls">
         <button class="nav-btn" id="prevBtn" title="Попередній слайд">←</button>
-        <span class="slide-counter"><span id="currentSlide">1</span> / <span id="totalSlides">15</span></span>
+        <span class="slide-counter"><span id="currentSlide">1</span> / <span id="totalSlides">16</span></span>
         <button class="nav-btn" id="nextBtn" title="Наступний слайд">→</button>
     </div>
 </nav>
@@ -311,8 +311,50 @@ form.addEventListener('submit', async function(event) {
         </div>
     </section>
 
-    <!-- Слайд 7: Як працює Frontend -->
+    <!-- Слайд 7: DOM - як JavaScript "бачить" сторінку -->
     <section class="slide" data-slide="7">
+        <div class="slide-content">
+            <h2>🧠 DOM — як JavaScript «бачить» сторінку</h2>
+            <div class="code-explanation">
+                <div class="explanation-text animate-in">
+                    <h3>DOM — це дерево елементів сторінки</h3>
+                    <p><strong>DOM</strong> <i>(Document Object Model)</i> — це внутрішнє представлення HTML у браузері як <strong>об’єктів</strong>.</p>
+                    <ul class="feature-list">
+                        <li>JavaScript знаходить елементи через <span class="highlight">document.querySelector(...)</span></li>
+                        <li>Змінює текст/вміст: <span class="highlight">textContent</span> або <span class="highlight">innerHTML</span></li>
+                        <li>Керує стилями через класи: <span class="highlight">classList.add/remove/toggle</span></li>
+                    </ul>
+                    <div class="dom-demo">
+                        <div class="dom-demo-card" id="domDemoCard" role="button" tabindex="0" aria-label="Демо DOM: клікніть, щоб змінити вміст">
+                            <div class="dom-demo-title">Демо DOM (клікни на мене)</div>
+                            <div class="dom-demo-content" id="domDemoContent">
+                                <p>Я — звичайний блок у DOM.</p>
+                                <p class="dom-demo-hint">Клікни, і JavaScript змінить мій вміст.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="code-block animate-in delay-1">
+                    <div class="code-header">
+                        <span class="code-dot red"></span>
+                        <span class="code-dot yellow"></span>
+                        <span class="code-dot green"></span>
+                        <span class="code-title">DOM приклад</span>
+                    </div>
+                    <pre><code>const card = document.getElementById('domDemoCard');
+
+card.addEventListener('click', () =&gt; {
+  card.classList.toggle('is-changed');
+  document.getElementById('domDemoContent').innerHTML =
+    '&lt;strong&gt;DOM змінено!&lt;/strong&gt;';
+});</code></pre>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Слайд 8: Як працює Frontend -->
+    <section class="slide" data-slide="8">
         <div class="slide-content">
             <h2>🎨 Як Frontend працює разом</h2>
             <div class="workflow-diagram">
@@ -363,8 +405,8 @@ form.addEventListener('submit', async function(event) {
         </div>
     </section>
 
-    <!-- Слайд 8: Backend - Сервер -->
-    <section class="slide" data-slide="8">
+    <!-- Слайд 9: Backend - Сервер -->
+    <section class="slide" data-slide="9">
         <div class="slide-content">
             <h2><span class="badge python">Python</span> Серверний застосунок</h2>
             <div class="code-explanation">
@@ -426,8 +468,8 @@ def add_expense():
         </div>
     </section>
 
-    <!-- Слайд 9: API - Контракт -->
-    <section class="slide" data-slide="9">
+    <!-- Слайд 10: API - Контракт -->
+    <section class="slide" data-slide="10">
         <div class="slide-content">
             <h2>🤝 API — контракт між Frontend і Backend</h2>
             <div class="code-explanation">
@@ -436,7 +478,7 @@ def add_expense():
                     <p><strong>API</strong> <i>(Application Programming Interface)</i> визначає:</p>
                     <ul class="feature-list">
                         <li><span class="highlight">куди</span> звернутися (endpoint: <span class="highlight">/get_totals</span>)</li>
-                        <li><span class="highlight">як</span> звернутися (<b>HTTP</b> <i>(HyperText Transfer Protocol)</i> метод: <span class="highlight">GET</span>/<span class="highlight">POST</span>)</li>
+                        <li><span class="highlight">як</span> звернутися (HTTP <i>(HyperText Transfer Protocol)</i> метод: <span class="highlight">GET</span>/<span class="highlight">POST</span>)</li>
                         <li><span class="highlight">що</span> передати (дані запиту у <span class="highlight">JSON</span> <i>(JavaScript Object Notation)</i>)</li>
                         <li><span class="highlight">що</span> отримаємо у відповідь (зазвичай також <span class="highlight">JSON</span>)</li>
                     </ul>
@@ -487,8 +529,8 @@ Response 400 (JSON)
         </div>
     </section>
 
-    <!-- Слайд 10: API в дії -->
-    <section class="slide" data-slide="10">
+    <!-- Слайд 11: API в дії -->
+    <section class="slide" data-slide="11">
         <div class="slide-content">
             <h2>🔌 API в дії: кнопка → запит → відповідь</h2>
             <div class="code-explanation">
@@ -499,7 +541,7 @@ Response 400 (JSON)
                         <li><strong>Network</strong> у DevTools показує реальні запити <span class="highlight">GET</span> та <span class="highlight">POST</span></li>
                         <li><strong>Request</strong> — що відправили (JSON)</li>
                         <li><strong>Response</strong> — що повернув сервер (JSON)</li>
-                        <li><strong>DOM</strong> <i>(Document Object Model)</i> оновлюється без перезавантаження сторінки</li>
+                        <li><strong>DOM</strong> оновлюється без перезавантаження сторінки</li>
                     </ul>
                     <div class="api-demo">
                         <div class="api-endpoint">
@@ -537,8 +579,8 @@ const updatedTotals = await addResponse.json();</code></pre>
         </div>
     </section>
 
-    <!-- Слайд 11: Навіщо розділення та API -->
-    <section class="slide" data-slide="11">
+    <!-- Слайд 12: Навіщо розділення та API -->
+    <section class="slide" data-slide="12">
         <div class="slide-content">
             <h2>🧩 Чому ми розділяємо ролі та працюємо через API?</h2>
             <div class="content-grid">
@@ -561,8 +603,8 @@ const updatedTotals = await addResponse.json();</code></pre>
         </div>
     </section>
 
-    <!-- Слайд 12: База даних -->
-    <section class="slide" data-slide="12">
+    <!-- Слайд 13: База даних -->
+    <section class="slide" data-slide="13">
         <div class="slide-content">
             <h2><span class="badge db">Database</span> Зберігання даних</h2>
             <div class="database-section">
@@ -621,8 +663,8 @@ const updatedTotals = await addResponse.json();</code></pre>
         </div>
     </section>
 
-    <!-- Слайд 13: Повна архітектура -->
-    <section class="slide" data-slide="13">
+    <!-- Слайд 14: Повна архітектура -->
+    <section class="slide" data-slide="14">
         <div class="slide-content">
             <h2>🔄 Як все працює разом</h2>
             <div class="architecture-diagram">
@@ -667,8 +709,8 @@ const updatedTotals = await addResponse.json();</code></pre>
         </div>
     </section>
 
-    <!-- Слайд 14: Структура нашого проєкту -->
-    <section class="slide" data-slide="14">
+    <!-- Слайд 15: Структура нашого проєкту -->
+    <section class="slide" data-slide="15">
         <div class="slide-content">
             <h2>📁 Структура нашого проєкту</h2>
             <div class="project-structure">
@@ -720,8 +762,8 @@ const updatedTotals = await addResponse.json();</code></pre>
         </div>
     </section>
 
-    <!-- Слайд 15: Підсумок -->
-    <section class="slide" data-slide="15">
+    <!-- Слайд 16: Підсумок -->
+    <section class="slide" data-slide="16">
         <div class="slide-content summary-slide">
             <h2>📝 Підсумок</h2>
             <div class="summary-grid">
@@ -740,7 +782,8 @@ const updatedTotals = await addResponse.json();</code></pre>
                     <ul>
                         <li><strong>Сервер</strong> — обробка запитів</li>
                         <li><strong>База даних</strong> — зберігання</li>
-                        <li><strong>API</strong> — спілкування з frontend</li>
+                        <li><strong>API</strong> — спілкування з frontend <small><i>(Application Programming
+                            Interface)</i></small></li>
                     </ul>
                 </div>
             </div>
